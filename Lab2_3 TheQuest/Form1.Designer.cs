@@ -477,11 +477,13 @@
             this.Controls.Add(this.picRedPotion);
             this.Controls.Add(this.picBluePotion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "The Quest";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBat)).EndInit();

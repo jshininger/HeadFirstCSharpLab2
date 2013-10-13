@@ -343,5 +343,28 @@ namespace Lab2_3_TheQuest
                 attackRight.Visible = true;
             }
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    moveUp_Click(sender, e);
+                    break;
+                case Keys.D:
+                    moveRight_Click(sender, e);
+                    break;
+                case Keys.S:
+                    moveDown_Click(sender, e);
+                    break;
+                case Keys.A:
+                    moveLeft_Click(sender, e);
+                    break;
+                default: break;
+            }
+        }
+
+        //todo: better looking representation of hp for player and enemies
+        //todo: fix arrow key mapping
     }
 }
