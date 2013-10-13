@@ -365,6 +365,5 @@ namespace Lab2_3_TheQuest
         }
 
         //todo: better looking representation of hp for player and enemies
-        //todo: fix arrow key mapping
     }
 }
