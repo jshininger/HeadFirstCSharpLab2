@@ -1,0 +1,9 @@
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\bin\Debug\Lab2_3 TheQuest.exe.config
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\bin\Debug\Lab2_3 TheQuest.exe
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\bin\Debug\Lab2_3 TheQuest.pdb
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\obj\Debug\Lab2_3 TheQuest.csprojResolveAssemblyReference.cache
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\obj\Debug\Lab2_3_TheQuest.Form1.resources
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\obj\Debug\Lab2_3_TheQuest.Properties.Resources.resources
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\obj\Debug\Lab2_3 TheQuest.csproj.GenerateResource.Cache
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\obj\Debug\Lab2_3 TheQuest.exe
+c:\users\jeff shininger\documents\visual studio 2012\Projects\Lab2_3 TheQuest\Lab2_3 TheQuest\obj\Debug\Lab2_3 TheQuest.pdb
