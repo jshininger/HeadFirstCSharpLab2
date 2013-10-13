@@ -15,7 +15,7 @@ namespace Lab2_3_TheQuest
         public Point PlayerLocation { get { return player.Location; } }
         public int PlayerHitPoints { get { return player.HitPoints; } }
         public IEnumerable<string> PlayerWeapons { get { return player.Weapons; } }
-        private int level = 5;
+        private int level = 0;
         public int Level { get { return level; } }
         private Rectangle boundaries;
         public Rectangle Boundaries { get { return boundaries; } }
