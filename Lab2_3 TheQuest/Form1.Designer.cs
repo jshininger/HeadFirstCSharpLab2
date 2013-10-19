@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.picPlayer = new System.Windows.Forms.PictureBox();
             this.picSword = new System.Windows.Forms.PictureBox();
@@ -53,6 +54,7 @@
             this.attackRight = new System.Windows.Forms.Button();
             this.attackUp = new System.Windows.Forms.Button();
             this.attackLeft = new System.Windows.Forms.Button();
+            this.pauseButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.playerLabel = new System.Windows.Forms.Label();
             this.playerHPLabel = new System.Windows.Forms.Label();
@@ -62,6 +64,12 @@
             this.ghostHPLabel = new System.Windows.Forms.Label();
             this.ghoulLabel = new System.Windows.Forms.Label();
             this.ghoulHPLabel = new System.Windows.Forms.Label();
+            this.gameStatusLabel = new System.Windows.Forms.Label();
+            this.newGameButton = new System.Windows.Forms.Button();
+            this.quitButton = new System.Windows.Forms.Button();
+            this.enemyTimer = new System.Windows.Forms.Timer(this.components);
+            this.startAction = new System.Windows.Forms.Button();
+            this.startTurn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBat)).BeginInit();
@@ -91,6 +99,7 @@
             this.picPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPlayer.TabIndex = 0;
             this.picPlayer.TabStop = false;
+            this.picPlayer.Visible = false;
             // 
             // picSword
             // 
@@ -115,6 +124,7 @@
             this.picBat.TabIndex = 2;
             this.picBat.TabStop = false;
             this.picBat.Visible = false;
+            this.picBat.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picBat_MouseClick);
             // 
             // picGhoul
             // 
@@ -127,6 +137,7 @@
             this.picGhoul.TabIndex = 3;
             this.picGhoul.TabStop = false;
             this.picGhoul.Visible = false;
+            this.picGhoul.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picGhoul_MouseClick);
             // 
             // picGhost
             // 
@@ -139,6 +150,7 @@
             this.picGhost.TabIndex = 4;
             this.picGhost.TabStop = false;
             this.picGhost.Visible = false;
+            this.picGhost.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picGhost_MouseClick);
             // 
             // picBow
             // 
@@ -261,6 +273,7 @@
             this.moveGroup.TabIndex = 14;
             this.moveGroup.TabStop = false;
             this.moveGroup.Text = "Move";
+            this.moveGroup.Visible = false;
             // 
             // moveDown
             // 
@@ -315,6 +328,7 @@
             this.attackGroup.TabIndex = 15;
             this.attackGroup.TabStop = false;
             this.attackGroup.Text = "Attack";
+            this.attackGroup.Visible = false;
             // 
             // attackDown
             // 
@@ -356,6 +370,18 @@
             this.attackLeft.UseVisualStyleBackColor = true;
             this.attackLeft.Click += new System.EventHandler(this.attackLeft_Click);
             // 
+            // pauseButton
+            // 
+            this.pauseButton.Font = new System.Drawing.Font("Old English Text MT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseButton.Location = new System.Drawing.Point(350, 311);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(182, 64);
+            this.pauseButton.TabIndex = 22;
+            this.pauseButton.Text = "Pause";
+            this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Visible = false;
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
@@ -377,6 +403,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(172, 54);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
@@ -394,63 +421,119 @@
             this.playerHPLabel.AutoSize = true;
             this.playerHPLabel.Location = new System.Drawing.Point(63, 0);
             this.playerHPLabel.Name = "playerHPLabel";
-            this.playerHPLabel.Size = new System.Drawing.Size(77, 13);
+            this.playerHPLabel.Size = new System.Drawing.Size(13, 13);
             this.playerHPLabel.TabIndex = 1;
-            this.playerHPLabel.Text = "playerHitPoints";
+            this.playerHPLabel.Text = "0";
             // 
             // batLabel
             // 
             this.batLabel.AutoSize = true;
             this.batLabel.Location = new System.Drawing.Point(3, 13);
             this.batLabel.Name = "batLabel";
-            this.batLabel.Size = new System.Drawing.Size(23, 13);
+            this.batLabel.Size = new System.Drawing.Size(0, 13);
             this.batLabel.TabIndex = 2;
-            this.batLabel.Text = "Bat";
             // 
             // batHPLabel
             // 
             this.batHPLabel.AutoSize = true;
             this.batHPLabel.Location = new System.Drawing.Point(63, 13);
             this.batHPLabel.Name = "batHPLabel";
-            this.batHPLabel.Size = new System.Drawing.Size(64, 13);
+            this.batHPLabel.Size = new System.Drawing.Size(0, 13);
             this.batHPLabel.TabIndex = 3;
-            this.batHPLabel.Text = "batHitPoints";
             // 
             // ghostLabel
             // 
             this.ghostLabel.AutoSize = true;
             this.ghostLabel.Location = new System.Drawing.Point(3, 26);
             this.ghostLabel.Name = "ghostLabel";
-            this.ghostLabel.Size = new System.Drawing.Size(35, 13);
+            this.ghostLabel.Size = new System.Drawing.Size(0, 13);
             this.ghostLabel.TabIndex = 4;
-            this.ghostLabel.Text = "Ghost";
             // 
             // ghostHPLabel
             // 
             this.ghostHPLabel.AutoSize = true;
             this.ghostHPLabel.Location = new System.Drawing.Point(63, 26);
             this.ghostHPLabel.Name = "ghostHPLabel";
-            this.ghostHPLabel.Size = new System.Drawing.Size(75, 13);
+            this.ghostHPLabel.Size = new System.Drawing.Size(0, 13);
             this.ghostHPLabel.TabIndex = 5;
-            this.ghostHPLabel.Text = "ghostHitPoints";
             // 
             // ghoulLabel
             // 
             this.ghoulLabel.AutoSize = true;
             this.ghoulLabel.Location = new System.Drawing.Point(3, 39);
             this.ghoulLabel.Name = "ghoulLabel";
-            this.ghoulLabel.Size = new System.Drawing.Size(35, 13);
+            this.ghoulLabel.Size = new System.Drawing.Size(0, 13);
             this.ghoulLabel.TabIndex = 6;
-            this.ghoulLabel.Text = "Ghoul";
             // 
             // ghoulHPLabel
             // 
             this.ghoulHPLabel.AutoSize = true;
             this.ghoulHPLabel.Location = new System.Drawing.Point(63, 39);
             this.ghoulHPLabel.Name = "ghoulHPLabel";
-            this.ghoulHPLabel.Size = new System.Drawing.Size(75, 13);
+            this.ghoulHPLabel.Size = new System.Drawing.Size(0, 13);
             this.ghoulHPLabel.TabIndex = 7;
-            this.ghoulHPLabel.Text = "ghoulHitPoints";
+            // 
+            // gameStatusLabel
+            // 
+            this.gameStatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.gameStatusLabel.Font = new System.Drawing.Font("Old English Text MT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameStatusLabel.ForeColor = System.Drawing.Color.AntiqueWhite;
+            this.gameStatusLabel.Location = new System.Drawing.Point(174, 87);
+            this.gameStatusLabel.Name = "gameStatusLabel";
+            this.gameStatusLabel.Size = new System.Drawing.Size(236, 42);
+            this.gameStatusLabel.TabIndex = 17;
+            this.gameStatusLabel.Text = "New Game";
+            this.gameStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // newGameButton
+            // 
+            this.newGameButton.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGameButton.Location = new System.Drawing.Point(154, 132);
+            this.newGameButton.Name = "newGameButton";
+            this.newGameButton.Size = new System.Drawing.Size(122, 42);
+            this.newGameButton.TabIndex = 18;
+            this.newGameButton.Text = "New Game";
+            this.newGameButton.UseVisualStyleBackColor = true;
+            this.newGameButton.Visible = false;
+            this.newGameButton.Click += new System.EventHandler(this.newGameButton_Click);
+            // 
+            // quitButton
+            // 
+            this.quitButton.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitButton.Location = new System.Drawing.Point(303, 132);
+            this.quitButton.Name = "quitButton";
+            this.quitButton.Size = new System.Drawing.Size(117, 42);
+            this.quitButton.TabIndex = 19;
+            this.quitButton.Text = "Quit";
+            this.quitButton.UseVisualStyleBackColor = true;
+            this.quitButton.Visible = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            // 
+            // enemyTimer
+            // 
+            this.enemyTimer.Tick += new System.EventHandler(this.enemyTimer_Tick);
+            // 
+            // startAction
+            // 
+            this.startAction.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startAction.Location = new System.Drawing.Point(154, 132);
+            this.startAction.Name = "startAction";
+            this.startAction.Size = new System.Drawing.Size(122, 42);
+            this.startAction.TabIndex = 20;
+            this.startAction.Text = "Start Action Game";
+            this.startAction.UseVisualStyleBackColor = true;
+            this.startAction.Click += new System.EventHandler(this.startAction_Click);
+            // 
+            // startTurn
+            // 
+            this.startTurn.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startTurn.Location = new System.Drawing.Point(303, 132);
+            this.startTurn.Name = "startTurn";
+            this.startTurn.Size = new System.Drawing.Size(117, 42);
+            this.startTurn.TabIndex = 21;
+            this.startTurn.Text = "Start Turn-based Game";
+            this.startTurn.UseVisualStyleBackColor = true;
+            this.startTurn.Click += new System.EventHandler(this.startTurn_Click);
             // 
             // Form1
             // 
@@ -459,13 +542,17 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.pauseButton);
+            this.Controls.Add(this.startTurn);
+            this.Controls.Add(this.startAction);
+            this.Controls.Add(this.quitButton);
+            this.Controls.Add(this.newGameButton);
+            this.Controls.Add(this.gameStatusLabel);
             this.Controls.Add(this.picPlayer);
             this.Controls.Add(this.picGhost);
             this.Controls.Add(this.picGhoul);
             this.Controls.Add(this.picBat);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.attackGroup);
-            this.Controls.Add(this.moveGroup);
             this.Controls.Add(this.inv_picRedPotion);
             this.Controls.Add(this.inv_picBluePotion);
             this.Controls.Add(this.inv_picMace);
@@ -476,14 +563,16 @@
             this.Controls.Add(this.picMace);
             this.Controls.Add(this.picRedPotion);
             this.Controls.Add(this.picBluePotion);
+            this.Controls.Add(this.attackGroup);
+            this.Controls.Add(this.moveGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "The Quest";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.picPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBat)).EndInit();
@@ -541,6 +630,13 @@
         private System.Windows.Forms.Label ghostHPLabel;
         private System.Windows.Forms.Label ghoulLabel;
         private System.Windows.Forms.Label ghoulHPLabel;
+        private System.Windows.Forms.Label gameStatusLabel;
+        private System.Windows.Forms.Button newGameButton;
+        private System.Windows.Forms.Button quitButton;
+        private System.Windows.Forms.Timer enemyTimer;
+        private System.Windows.Forms.Button startAction;
+        private System.Windows.Forms.Button startTurn;
+        private System.Windows.Forms.Button pauseButton;
     }
 }
 

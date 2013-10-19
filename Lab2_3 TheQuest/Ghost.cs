@@ -11,8 +11,10 @@ namespace Lab2_3_TheQuest
     {
         public Ghost(Game game, Point location)
             : base(game, location, 8)
-        { 
-            // No additional code needed 
+        {
+            // Make the ghost slower than the bat and ghoul, but not much slower as
+            // it already stands still 2/3 of the time anyway.
+            Speed = 5;
         }
 
         public override void Move(Random random)

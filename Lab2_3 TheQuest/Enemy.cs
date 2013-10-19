@@ -11,6 +11,10 @@ namespace Lab2_3_TheQuest
     {
         private const int NearPlayerDistance = 25;
         public int HitPoints { get; private set; }
+        // Added a Speed property for enemies so they can move automatically in an action game.
+        // Lower speed equals a faster enemy as speed dictates how many ticks of the enemy timer
+        // an enemy waits to move.
+        public int Speed { get; protected set; }
         public bool Dead
         {
             get

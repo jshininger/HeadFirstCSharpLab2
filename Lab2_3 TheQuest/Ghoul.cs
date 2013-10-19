@@ -11,8 +11,9 @@ namespace Lab2_3_TheQuest
     {
         public Ghoul(Game game, Point location)
             : base(game, location, 10)
-        { 
-            // No additional code needed 
+        {
+            // The ghoul is faster than the ghost, but slower than the bat.
+            Speed = 4;
         }
 
         public override void Move(Random random)

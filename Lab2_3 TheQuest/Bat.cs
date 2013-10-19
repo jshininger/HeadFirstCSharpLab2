@@ -11,8 +11,9 @@ namespace Lab2_3_TheQuest
     {
         public Bat(Game game, Point location)
             : base(game, location, 6)
-        { 
-            // No additional code needed 
+        {
+            // The bat is the fastest enemy, though it doesn't do as much damage.
+            Speed = 2;
         }
 
         public override void Move(Random random)
